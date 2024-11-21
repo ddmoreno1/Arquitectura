@@ -12,5 +12,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author USER
  */
 public interface CursoRepository extends JpaRepository<Curso, Long> {
-    
+    int countByCreadorIdAndEstado(Long creadorId, String estado);
 }

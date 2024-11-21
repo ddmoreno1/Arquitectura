@@ -15,7 +15,7 @@ public class SuscripcionDTO {
     private Long id;
 
     @NotNull
-    private Long consumidorId;
+    private Long usuarioId;
 
     @NotNull
     private Long cursoId;
@@ -33,12 +33,12 @@ public class SuscripcionDTO {
         this.id = id;
     }
 
-    public Long getConsumidorId() {
-        return consumidorId;
+    public Long getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setConsumidorId(Long consumidorId) {
-        this.consumidorId = consumidorId;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public Long getCursoId() {

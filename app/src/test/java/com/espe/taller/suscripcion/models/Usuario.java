@@ -16,6 +16,7 @@ import jakarta.validation.constraints.NotNull;
  * @author USER
  */
 @Entity
+@Table(name = "usuario") 
 public class Usuario {
     
     @Id

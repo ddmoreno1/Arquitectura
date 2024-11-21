@@ -36,7 +36,7 @@ public class SuscripcionController {
         return suscripcionService.listarSuscripciones().stream().map(suscripcion -> {
             SuscripcionDTO dto = new SuscripcionDTO();
             dto.setId(suscripcion.getId());
-            dto.setConsumidorId(suscripcion.getConsumidor().getId());
+            dto.setUsuarioId(suscripcion.getUsuario().getId());
             dto.setCursoId(suscripcion.getCurso().getId());
             dto.setActiva(suscripcion.isActiva());
             return dto;

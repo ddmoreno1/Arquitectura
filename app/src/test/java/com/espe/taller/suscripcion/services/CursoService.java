@@ -26,6 +26,15 @@ public class CursoService {
     }
 
     public Curso crearCurso(Curso curso) {
+        // Validar el número de cursos activos del creador
+        Long creadorId = curso.getCreador().getId();
+        int cursosActivos = cursoRepository.countByCreadorIdAndEstado(creadorId, "ACTIVO");
+
+        if (cursosActivos >= 2) {
+            throw new IllegalStateException("El creador no puede tener más de dos cursos activos.");
+        }
+
+        // Guarda el curso si la validación pasa
         return cursoRepository.save(curso);
     }
 

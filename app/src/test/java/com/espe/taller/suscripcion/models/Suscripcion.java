@@ -13,20 +13,24 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "suscripcion") 
 public class Suscripcion {
     
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    private Usuario consumidor; // Relación con Usuario
+    @JoinColumn(name = "usuario_id") // Nombre de la columna de la clave foránea
+    private Usuario usuario; // Relación con Usuario
 
     @ManyToOne
+    @JoinColumn(name = "curso_id") // Nombre de la columna de la clave foránea
     private Curso curso; // Relación con Curso
 
     @NotNull
     private boolean activa;
+
 
     // Getters y Setters
 
@@ -38,12 +42,12 @@ public class Suscripcion {
         this.id = id;
     }
 
-    public Usuario getConsumidor() {
-        return consumidor;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setConsumidor(Usuario consumidor) {
-        this.consumidor = consumidor;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Curso getCurso() {

@@ -13,10 +13,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-
+@Table(name="curso")
 public class Curso {
     
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -30,9 +30,10 @@ public class Curso {
     private String estado; // EN_CONSTRUCCION, ACTIVO, INACTIVO
 
     @ManyToOne
+    @JoinColumn(name = "creador_id") // Nombre de la columna de la clave foránea
     private Usuario creador; // Relación con Usuario
-
-    // Getters y Setters
+    
+    //Getters y Setters
 
     public Long getId() {
         return id;
@@ -74,6 +75,8 @@ public class Curso {
         this.creador = creador;
     }
     
-    
 }
+
+  
+   
 
